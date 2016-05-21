@@ -96,5 +96,26 @@ public class Publication{
     public void setComment(Comment comment) {
         this.comment = comment;
     }
+
+    public Publication(String title, String domain, Date date, boolean thesis, String path, Student student, Comment comment) {
+        this.title = title;
+        this.domain = domain;
+        this.date = date;
+        this.thesis = thesis;
+        this.path = path;
+        this.student = student;
+        this.comment = comment;
+    }
+
+    public Publication(Integer id, String title, String domain, Date date, boolean thesis, String path, Student student, Comment comment) {
+        this.id = id;
+        this.title = title;
+        this.domain = domain;
+        this.date = date;
+        this.thesis = thesis;
+        this.path = path;
+        this.student = student;
+        this.comment = comment;
+    }
     
 }

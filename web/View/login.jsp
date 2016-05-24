@@ -19,6 +19,11 @@
             <input type="password" name="password" id="password">
             <span class="error" style="color:red; display:none;">Password should not pe empty</span>
         <br>
+        <label for="type" >Type</label>
+            <select name="type" >
+                <option value="student">student</option>
+                <option value="proffesor">proffesor</option>
+            </select>
         <input type="submit" value="Submit" name="send">
         <input type="reset" value="Reset" name="clear">
         <span id="main-error" style="font-weight:700; color:red; display:none">Check all the errors</span>

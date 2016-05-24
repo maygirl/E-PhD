@@ -16,7 +16,6 @@ public class Person {
     private Date birthDate;
     private String username;
     private String password;
-    private Proffesor proffesor;
     private BankAccount bankAccount;
 
     public Person() {
@@ -33,6 +32,19 @@ public class Person {
         this.username = username;
         this.password = password;
     }
+
+    public Person(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Person(Integer id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+    
+    
 
     public Integer getId() {
         return id;
@@ -90,14 +102,6 @@ public class Person {
         this.password = password;
     }
 
-    public Proffesor getProffesor() {
-        return proffesor;
-    }
-
-    public void setProffesor(Proffesor proffesor) {
-        this.proffesor = proffesor;
-    }
-
     public BankAccount getBankAccount() {
         return bankAccount;
     }
@@ -106,18 +110,17 @@ public class Person {
         this.bankAccount = bankAccount;
     }
 
-    public Person(String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, Proffesor proffesor, BankAccount bankAccount) {
+    public Person(String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, BankAccount bankAccount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
         this.birthDate = birthDate;
         this.username = username;
         this.password = password;
-        this.proffesor = proffesor;
         this.bankAccount = bankAccount;
     }
 
-    public Person(Integer id, String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, Proffesor proffesor, BankAccount bankAccount) {
+    public Person(Integer id, String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, BankAccount bankAccount) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -125,7 +128,6 @@ public class Person {
         this.birthDate = birthDate;
         this.username = username;
         this.password = password;
-        this.proffesor = proffesor;
         this.bankAccount = bankAccount;
     }
 

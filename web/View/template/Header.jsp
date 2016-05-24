@@ -24,23 +24,34 @@
     <div>
         <img src="http://logok.org/wp-content/uploads/2015/05/SEAT-logo.png" height="100px">
         <h1>Seat</h1>
-        <c:if test="${sessionScope.admin}">
-            <div style="float:right">Admin</div>
+        <c:if test="${sessionScope.type == 'student'}">
+            <div style="float:right">Student</div>
+        </c:if>
+        <c:if test="${sessionScope.type == 'professor'}">
+            <div style="float:right">Professor</div>
         </c:if>
     </div>
     <br>
     <div align="center">
-        <c:if test="${empty sessionScope.user}">
-            <a href="login">Login</a>
-            <a href="register">Register</a>
-        </c:if>
-        <a href="products">Products</a>
-        <c:if test="${sessionScope.admin}">
-            <a href="add-product">Add Product</a>
-        </c:if>
-        <a href="cart">Cart</a>
         <c:if test="${not empty sessionScope.user}">
-            <a href="history">History</a>
-            <a href="logout">Logout</a>
+             <a href="logout">Logout</a>
         </c:if>
+        <c:if test="${empty sessionScope.user}">
+             <a href="login">Login</a>
+        </c:if>
+        <c:if test="${sessionScope.type == 'student'}">
+            <a href="publication">Publication</a>
+            <a href="student-report">Upload Report</a>
+            <a href="conference">Conference</a>
+            <a href="payment-reimbursent">Payment Proof</a>
+            <a href="submit-thesis">Submit Thesis</a>
+        </c:if>
+            
+        <c:if test="${sessionScope.type == 'professor'}">
+            <a href="validate-report">Validate Report</a>
+            <a href="select-student">Assign Course</a>
+            <a href="view-thesis">Thesis Comment</a>
+            <a href="courses">Grade</a>
+        </c:if>
+        
     </div>

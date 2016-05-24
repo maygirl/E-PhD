@@ -25,7 +25,7 @@ public class ConnectionPool {
     private ConnectionPool() {
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup("myDatasourceTravelPhd");
+            ds = (DataSource)ctx.lookup("myDatasourcePhd");
         } catch (NamingException ex) {
             Logger.getLogger(ConnectionPool.class.getName()).log(Level.SEVERE, null, ex);
         }

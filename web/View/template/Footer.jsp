@@ -9,8 +9,5 @@
 
         </div>
         <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <c:if test="${pageContext.request.requestURI =='/LabWork/View/Register.jsp'}">
-            <script src="script.js"></script>
-        </c:if>
     </body>
 </html>

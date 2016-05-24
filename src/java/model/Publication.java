@@ -33,6 +33,13 @@ public class Publication{
         this.path = path;
     }
 
+    public Publication(String title, String domain, int studentId, String filePath) {
+        this.title = title;
+        this.domain = domain;
+        this.student = new Student(studentId);
+        this.path = filePath;    
+    }
+
     public Integer getId() {
         return id;
     }

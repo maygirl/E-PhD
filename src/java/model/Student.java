@@ -10,10 +10,18 @@ import java.util.Date;
 public class Student extends Person{
 
     private int year;
-    private Proffesor coordinator;
+    private Professor coordinator;
 
     public Student() {
         super();
+    }
+
+    public Student(String username, String password) {
+        super(username, password);
+    }
+
+    Student(int studentId) {
+        super(studentId);
     }
 
     public int getYear() {
@@ -24,22 +32,22 @@ public class Student extends Person{
         this.year = year;
     }
 
-    public Proffesor getCoordinator() {
+    public Professor getCoordinator() {
         return coordinator;
     }
 
-    public void setCoordinator(Proffesor coordinator) {
+    public void setCoordinator(Professor coordinator) {
         this.coordinator = coordinator;
     }
 
-    public Student(int year, Proffesor coordinator, String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, Proffesor proffesor, BankAccount bankAccount) {
-        super(firstName, lastName, ssn, birthDate, username, password, proffesor, bankAccount);
+    public Student(int year, Professor coordinator, String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, BankAccount bankAccount) {
+        super(firstName, lastName, ssn, birthDate, username, password, bankAccount);
         this.year = year;
         this.coordinator = coordinator;
     }
 
-    public Student(int year, Proffesor coordinator, Integer id, String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, Proffesor proffesor, BankAccount bankAccount) {
-        super(id, firstName, lastName, ssn, birthDate, username, password, proffesor, bankAccount);
+    public Student(int year, Professor coordinator, Integer id, String firstName, String lastName, Integer ssn, Date birthDate, String username, String password, BankAccount bankAccount) {
+        super(id, firstName, lastName, ssn, birthDate, username, password, bankAccount);
         this.year = year;
         this.coordinator = coordinator;
     }

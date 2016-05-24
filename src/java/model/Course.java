@@ -10,7 +10,7 @@ public class Course {
     private Integer id;
     private String name;
     private String domain;
-    private Proffesor proffesor;
+    private Professor proffesor;
 
     public Course() {
     }
@@ -48,21 +48,21 @@ public class Course {
         this.domain = domain;
     }
 
-    public Proffesor getProffesor() {
+    public Professor getProfessor() {
         return proffesor;
     }
 
-    public void setProffesor(Proffesor proffesor) {
+    public void setProfessor(Professor proffesor) {
         this.proffesor = proffesor;
     }
 
-    public Course(String name, String domain, Proffesor proffesor) {
+    public Course(String name, String domain, Professor proffesor) {
         this.name = name;
         this.domain = domain;
         this.proffesor = proffesor;
     }
 
-    public Course(Integer id, String name, String domain, Proffesor proffesor) {
+    public Course(Integer id, String name, String domain, Professor proffesor) {
         this.id = id;
         this.name = name;
         this.domain = domain;

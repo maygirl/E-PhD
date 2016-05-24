@@ -5,6 +5,7 @@
  */
 package ajaxController;
 
+import dao.ReportDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Report;
 
 /**
  *
@@ -60,7 +62,15 @@ public class loadReportController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // here we will get the report data from the model.
+        
+        Report report = ReportDAO.getInstance().loadReportById(Integer.parseInt(request.getParameter("reportId")));
+        PrintWriter out = response.getWriter();
+//        response.setContentType("application/json");
+//        out.write("{\"content\":'" + report.getContent() + "'}");
+        response.setContentType("text");
+        out.write(report.getContent());
+        out.flush();
+        out.close();
     }
 
     /**

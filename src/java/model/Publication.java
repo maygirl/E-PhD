@@ -17,6 +17,7 @@ public class Publication{
     private String path;
     private Student student;
     private Comment comment;
+    private Report report;
 
     public Publication() {
     }
@@ -38,6 +39,23 @@ public class Publication{
         this.domain = domain;
         this.student = new Student(studentId);
         this.path = filePath;    
+    }
+
+    public Publication(int id, String title, String domain, java.sql.Date date, Student student, String path) {
+        this.id = id;
+        this.title = title;
+        this.domain = domain;
+        this.student = student;
+        this.date = date;
+        this.path = path;        
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
+
+    public Report getReport() {
+        return report;
     }
 
     public Integer getId() {

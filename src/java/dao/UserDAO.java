@@ -122,7 +122,7 @@ public class UserDAO {
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "SELECT p.id FROM person p INNER JOIN proffesor prof ON p.id = prof.id WHERE p.username='"+p.getUsername()+"' AND p.password='"+pass+"';";
+            String sql = "SELECT p.id FROM person p INNER JOIN professor prof ON p.id = prof.id WHERE p.username='"+p.getUsername()+"' AND p.password='"+pass+"';";
             ResultSet rs = instr.executeQuery(sql);
             resp = rs.next();
             

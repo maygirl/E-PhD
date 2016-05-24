@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <title>WAD</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
 </head>
 <body>

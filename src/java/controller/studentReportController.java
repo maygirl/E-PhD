@@ -5,13 +5,18 @@
  */
 package controller;
 
+import dao.PublicationDAO;
+import dao.ReportDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Publication;
+import model.Report;
 
 /**
  *
@@ -19,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "studentReportController", urlPatterns = {"/student-report"})
 public class studentReportController extends HttpServlet {
+    
+    ReportDAO reportDAO = ReportDAO.getInstance();
+    PublicationDAO publicationDAO = PublicationDAO.getInstance();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,7 +54,8 @@ public class studentReportController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //get data from model
+        ArrayList<Publication> publications = PublicationDAO.getInstance().getUnlistedPublicationList((int) request.getSession().getAttribute("user"));
+        request.setAttribute("publications", publications);
         request.getRequestDispatcher("View/studentReport.jsp").forward(request, response);
     }
 
@@ -61,7 +70,19 @@ public class studentReportController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //process form
+        ArrayList<Publication> publications = publicationDAO.getUnlistedPublicationList((int) request.getSession().getAttribute("user"));
+        
+        Report report = new Report((int) request.getSession().getAttribute("user"), request.getParameter("content"));
+        
+        reportDAO.saveToDb(report);
+        
+        report.setId(reportDAO.getLastReportId((int) request.getSession().getAttribute("user")));
+        
+        for (Publication p : publications){
+            p.setReport(report);
+            publicationDAO.setReport(p);
+        }
+        
         response.sendRedirect("student-report");
 
     }

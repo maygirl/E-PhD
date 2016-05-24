@@ -20,7 +20,7 @@ public class Student extends Person{
         super(username, password);
     }
 
-    Student(int studentId) {
+    public Student(int studentId) {
         super(studentId);
     }
 

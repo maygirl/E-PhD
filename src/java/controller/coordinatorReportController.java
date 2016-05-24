@@ -5,13 +5,15 @@
  */
 package controller;
 
+import dao.ReportDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Report;
 
 /**
  *
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "coordinatorReportController", urlPatterns = {"/validate-report"})
 public class coordinatorReportController extends HttpServlet {
 
+    ReportDAO reportDAO = ReportDAO.getInstance();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,7 +49,9 @@ public class coordinatorReportController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //get data from model
+        
+        ArrayList<Report> reports = reportDAO.getReportsByCoordinator((int) request.getSession().getAttribute("user"));
+        request.setAttribute("reports", reports);
         request.getRequestDispatcher("View/validateReport.jsp").forward(request, response);
     }
 
@@ -61,9 +66,8 @@ public class coordinatorReportController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //save data to model
+        reportDAO.validateReport(Integer.parseInt(request.getParameter("report")));
         response.sendRedirect("validate-report");
-
     }
 
     /**
